@@ -1,0 +1,173 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Soft, calm, and vibrant gradient background */
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    padding: 20px;
+}
+
+/* Background Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Glassmorphism Quote Card */
+.quote-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Aesthetic Top Border Accent */
+.quote-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+}
+
+.quote-content {
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+}
+
+.quote-icon {
+    color: #a18cd1;
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+}
+
+#quote-text {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #2d3748;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Animation class for JS */
+#quote-text.fade {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+#quote-author {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4a5568;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+/* Animation class for JS */
+#quote-author.fade {
+    opacity: 0;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 1.5rem;
+}
+
+/* Beautiful Gradient Button */
+.generate-btn {
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(161, 140, 209, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.generate-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.5s ease;
+}
+
+.generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(161, 140, 209, 0.4);
+}
+
+.generate-btn:hover::before {
+    left: 100%;
+}
+
+.generate-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(161, 140, 209, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .quote-card {
+        padding: 2rem;
+    }
+    
+    #quote-text {
+        font-size: 1.6rem;
+    }
+}
